@@ -35,7 +35,7 @@ class AdminController extends Controller
         //undo the comments after setting your mail variables correctly in the env file
         // Mail::to($leave->user->email)->send(new LeaveStatusNotification($leave, $leave->user, 'Approved'));
 
-        // return redirect()->back()->with('success', 'Leave approved successfully!');
+        return redirect()->back()->with('success', 'Leave approved successfully!');
     }
 
     public function denyLeave($id)
@@ -48,7 +48,7 @@ class AdminController extends Controller
         //undo the comments after setting your mail variables correctly in the env file
         // Mail::to($leave->user->email)->send(new LeaveStatusNotification($leave, $leave->user, 'Denied'));
 
-        // return redirect()->back()->with('success', 'Leave denied successfully!');
+        return redirect()->back()->with('success', 'Leave denied successfully!');
     }
     public function approvedLeaves()
     {
