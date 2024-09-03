@@ -31,7 +31,7 @@ class LeaveController extends Controller
         $leave->user_id = auth()->id();
         $leave->user_name = auth()->user()->name;
         $leave->save();
-        return redirect()->route('user-dashboard')->with('status', 'Leave request submitted successfully!');
+        return redirect()->route('user.leaves')->with('status', 'Leave request submitted successfully!');
     }
     public function edit($id)
     {
@@ -50,7 +50,7 @@ class LeaveController extends Controller
         $leave = Leave::findOrFail($id);
         $leave->update($form);
 
-        return redirect()->route('dashboard')->with('success', 'Leave updated successfully.');
+        return redirect()->route('user.leaves')->with('success', 'Leave updated successfully.');
     }
 
     public function destroy($id)
@@ -58,6 +58,6 @@ class LeaveController extends Controller
         $leave = Leave::findOrFail($id);
         $leave->delete();
 
-        return redirect()->route('user-dashboard')->with('success', 'Leave deleted successfully.');
+        return redirect()->route('user.leaves')->with('success', 'Leave deleted successfully.');
     }
 }
