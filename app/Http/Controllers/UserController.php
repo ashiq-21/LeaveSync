@@ -12,7 +12,7 @@ class UserController extends Controller
     }
     public function leaves()
     {
-        $leaves = auth()->user()->leaves()->paginate(10); // Assumes a one-to-many relationship
+        $leaves = auth()->user()->leaves()->latest()->paginate(10); // Assumes a one-to-many relationship
         return view('user.leaves', compact('leaves'));
     }
 
