@@ -52,5 +52,5 @@ Route::post('/register', [LoginController::class, 'register'])->name('register.p
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
