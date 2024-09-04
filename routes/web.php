@@ -20,6 +20,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     Route::post('/leave/{id}/deny', [AdminController::class, 'denyLeave'])->name('admin.deny-leave');
 
+    Route::get('/monthly-leave-report', [AdminController::class, 'monthlyReport'])->name('admin.monthly-report');
+
 
 });
 

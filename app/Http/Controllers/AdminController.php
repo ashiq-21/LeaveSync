@@ -3,18 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Leave;
+use App\Models\User;
 use App\Mail\LeaveStatusNotification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
 
     public function dashboard()
     {
-        $data['pendingLeavesCount'] = Leave::where('status', 'Pending')->count();
-        $data['approvedLeavesCount'] = Leave::where('status', 'Approved')->count();
-        $data['deniedLeavesCount'] = Leave::where('status', 'Denied')->count();
+        $currentMonth = Carbon::now()->month;
+        $data = [
+            'pendingLeavesCount' => Leave::where('status', 'Pending')->count(),
+            'approvedLeavesCount' => Leave::where('status', 'Approved')->count(),
+            'deniedLeavesCount' => Leave::where('status', 'Denied')->count(),
+            'monthlyLeavesCount' => Leave::whereMonth('start_date', $currentMonth)->where('status', 'Approved')->count(),
+        ];
         return view('admin.dashboard', compact('data'));
     }
 
@@ -59,6 +65,23 @@ class AdminController extends Controller
     {
         $leaves = Leave::where('status', 'Denied')->latest()->paginate(10); // Fetch all denied leave requests
         return view('admin.denied-leaves', compact('leaves'));
+    }
+    public function monthlyReport()
+    {
+        $currentMonth = now()->month;
+
+        $monthlyLeaveData = User::withCount([
+            'leaves' => function ($query) use ($currentMonth) {
+                $query->whereMonth('start_date', $currentMonth)
+                    ->where('status', 'Approved');
+            }
+        ])->having('leaves_count', '>', 0)
+            ->orderBy('leaves_count', 'desc')
+            ->paginate(10);
+
+        return view('admin.monthly-report', compact('monthlyLeaveData'));
+
+
     }
 
 }

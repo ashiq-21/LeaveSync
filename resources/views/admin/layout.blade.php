@@ -24,6 +24,7 @@
                 <a href="{{ route('admin.approved-leaves') }}" class="ml-4 hover:text-gray-200">Approved Leaves</a>
                 <a href="{{ route('admin.denied-leaves') }}" class="ml-4 hover:text-gray-200">Denied
                     Leaves</a>
+                <a href="{{ route('admin.monthly-report') }}" class="ml-4 hover:text-gray-200">Monthly Report</a>
                 <a href="{{ route('logout') }}" class="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">
                     Logout
                 </a>
