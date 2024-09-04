@@ -14,9 +14,11 @@
     <!-- Navbar -->
     <nav class="bg-blue-500 p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-white font-bold text-xl">
-                LeaveSync
-            </div>
+            <a href="{{ route('home') }}">
+                <div class="text-white font-bold text-xl">
+                    LeaveSync
+                </div>
+            </a>
             <div>
                 <a href="{{ route('user-dashboard') }}" class="text-white mr-4">Dashboard</a>
                 <a href="{{ route('leave.create') }}" class="text-white mr-4">Create Leave</a>

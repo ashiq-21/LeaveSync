@@ -13,7 +13,11 @@
 
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+            <a href="{{ route('home') }}">
+                <div class="text-white font-bold text-xl">
+                    LeaveSync
+                </div>
+            </a>
             <nav>
                 <a href="{{ route('admin-dashboard') }}" class="ml-4 hover:text-gray-200">Admin Dashboard</a>
                 <a href="{{ route('admin.pending-leaves') }}" class="ml-4 hover:text-gray-200">Pending Leaves</a>

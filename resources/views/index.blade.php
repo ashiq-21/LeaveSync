@@ -19,9 +19,15 @@
                 </div>
             </a>
             <div>
-                <a href="{{ route('login') }}" class="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">
-                    Login
-                </a>
+                @guest
+                    <a href="{{ route('login') }}" class="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">
+                        Login
+                    </a>
+                @else
+                    <a href="{{ route('logout') }}" class="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">
+                        Logout
+                    </a>
+                @endguest
             </div>
         </div>
     </nav>
@@ -29,12 +35,32 @@
     <!-- Hero Section -->
     <header class="bg-blue-600 text-white py-20">
         <div class="container mx-auto text-center">
-            <h1 class="text-5xl font-bold mb-4">Welcome to LeaveSync</h1>
-            <p class="text-xl mb-6">Manage your leaves efficiently with our intuitive system.</p>
-            <a href="{{ route('register') }}"
-                class="bg-white text-blue-600 font-bold py-3 px-6 rounded shadow-lg hover:bg-gray-100">
-                Get Started
-            </a>
+            <h1 class="text-5xl font-bold mb-4">
+                @guest
+                    Welcome to LeaveSync
+                @else
+                    Welcome Back to LeaveSync
+                @endguest
+            </h1>
+            <p class="text-xl mb-6">
+                @guest
+                    Manage your leaves efficiently with our intuitive system.
+                @else
+                    Ready to manage your leaves? Let's get started!
+                @endguest
+            </p>
+            @guest
+                <a href="{{ route('register') }}"
+                    class="bg-white text-blue-600 font-bold py-3 px-6 rounded shadow-lg hover:bg-gray-100">
+                    Get Started
+                </a>
+            @else
+                <a href="{{ auth()->user()->is_admin == 1 ? route('admin-dashboard') : route('user-dashboard') }}"
+                    class="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded">
+                    Dashboard
+                </a>
+
+            @endguest
         </div>
     </header>
 
@@ -68,16 +94,12 @@
         </div>
     </section>
 
-
-
-
     <!-- Footer -->
     <footer class="bg-gray-800 text-white p-4">
         <div class="container mx-auto text-center">
             <p>&copy; {{ date('Y') }} LeaveSync. All Rights Reserved.</p>
         </div>
     </footer>
-
 
 </body>
 
