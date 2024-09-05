@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+<body class="bg-gray-100 font-sans leading-normal tracking-normal min-h-screen flex flex-col">
 
     <!-- Navbar -->
     <nav class="bg-blue-500 p-4 shadow-lg">
@@ -30,7 +30,7 @@
     </nav>
 
     <!-- Content -->
-    <div class="container mx-auto py-8">
+    <div class="flex-grow">
         @yield('content')
     </div>
 

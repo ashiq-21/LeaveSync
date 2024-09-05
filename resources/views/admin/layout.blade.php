@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 font-sans leading-normal tracking-normal min-h-screen flex flex-col">
 
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
@@ -32,7 +32,7 @@
         </div>
     </header>
 
-    <main class="container mx-auto py-6">
+    <main class="flex-grow">
         @yield('content')
     </main>
 
