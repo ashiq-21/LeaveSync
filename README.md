@@ -26,6 +26,18 @@ A comprehensive Leave Management System built with Laravel 10.0 and Tailwind CSS
 -   [Node.js](https://nodejs.org/en/download/) & npm
 -   [MySQL](https://dev.mysql.com/downloads/)
 
+## Run Commands in terminal before starting
+
+-   composer install
+-   npm install
+-   php artisan key:generate
+-   php artisan migrate
+
+## Run commands for starting project
+
+-   npm run dev
+-   php artisan serve
+
 ## UI Screenshots
 
 ![screenshot](samples/home.png)
