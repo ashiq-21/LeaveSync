@@ -25,6 +25,7 @@
             <div>
                 <a href="{{ route('user-dashboard') }}" class="text-white mr-4">Dashboard</a>
                 <a href="{{ route('leave.create') }}" class="text-white mr-4">Create Leave</a>
+                <a href="{{ route('user.leaves') }}" class="text-white mr-4">Your Leaves</a>
                 <a href="{{ route('logout') }}" class="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">
                     Logout
                 </a>
