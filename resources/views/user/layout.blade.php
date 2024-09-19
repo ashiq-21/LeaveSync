@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')Leave Management System</title>
+    <!--flat picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     @vite('resources/css/app.css')
 </head>
 
@@ -40,6 +43,23 @@
             <p>&copy; {{ date('Y') }} LeaveSync. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Flatpickr Script -->
+    <script>
+        flatpickr("#start_date", {
+            dateFormat: "Y-m-d", // Set the date format
+            onReady: function(selectedDates, dateStr, instance) {
+                // You can add any additional functionality here if needed
+            },
+        });
+
+        flatpickr("#end_date", {
+            dateFormat: "Y-m-d", // Set the date format
+            onReady: function(selectedDates, dateStr, instance) {
+                // You can add any additional functionality here if needed
+            },
+        });
+    </script>
 
 </body>
 
