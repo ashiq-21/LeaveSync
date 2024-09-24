@@ -19,11 +19,8 @@
                 </div>
             </a>
             <nav>
-                <a href="{{ route('admin-dashboard') }}" class="ml-4 hover:text-gray-200">Admin Dashboard</a>
-                <a href="{{ route('admin.pending-leaves') }}" class="ml-4 hover:text-gray-200">Pending Leaves</a>
-                <a href="{{ route('admin.approved-leaves') }}" class="ml-4 hover:text-gray-200">Approved Leaves</a>
-                <a href="{{ route('admin.denied-leaves') }}" class="ml-4 hover:text-gray-200">Denied
-                    Leaves</a>
+                <a href="{{ route('admin.manage-leaves') }}" class="ml-4 hover:text-gray-200">Manage Leaves</a>
+                <a href="{{ route('admin.manage-users') }}" class="ml-4 hover:text-gray-200">Manage Employees</a>
                 <a href="{{ route('admin.monthly-report') }}" class="ml-4 hover:text-gray-200">Monthly Report</a>
                 <a href="{{ route('logout') }}" class="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">
                     Logout

@@ -14,16 +14,26 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        $currentMonth = Carbon::now()->month;
+        return view('admin.dashboard');
+    }
+
+    public function manageLeaves()
+    {
         $data = [
             'pendingLeavesCount' => Leave::where('status', 'Pending')->count(),
             'approvedLeavesCount' => Leave::where('status', 'Approved')->count(),
             'deniedLeavesCount' => Leave::where('status', 'Denied')->count(),
-            'monthlyLeavesCount' => Leave::whereMonth('start_date', $currentMonth)->where('status', 'Approved')->count(),
         ];
-        return view('admin.dashboard', compact('data'));
+
+        return view('admin.manage-leaves', compact('data'));
     }
 
+    public function manageUsers()
+    {
+        $nonAdminUsers = User::where('is_admin', 0)->paginate(10);
+
+        return view('admin.manage-users', compact('nonAdminUsers'));
+    }
 
     public function pendingLeaves()
     {
@@ -82,6 +92,17 @@ class AdminController extends Controller
         return view('admin.monthly-report', compact('monthlyLeaveData'));
 
 
+    }
+
+    public function deleteUser($id)
+    {
+        // Find the user by ID
+        $user = User::findOrFail($id);
+
+        // Delete the user
+        $user->delete();
+
+        return redirect()->route('admin.manage-users')->with('success', 'User deleted successfully.');
     }
 
 }

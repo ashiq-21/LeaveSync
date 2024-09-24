@@ -6,7 +6,7 @@ A comprehensive Leave Management System built with Laravel 10.0 and Tailwind CSS
 
 -   User authentication (login, registration)
 -   User dashboard to view and manage leave requests
--   Admin dashboard to view pending, approved, and denied leave requests
+-   Admin dashboard to view pending, approved,denied leave requests and manage employees
 -   Create, edit, and delete leave requests
 -   Email notifications for leave approval and denial
 -   Responsive UI with Tailwind CSS
