@@ -19,6 +19,7 @@
                 </div>
             </a>
             <nav>
+                <a href="{{ route('admin-dashboard') }}" class="ml-4 hover:text-gray-200">Admin Dashboard</a>
                 <a href="{{ route('admin.manage-leaves') }}" class="ml-4 hover:text-gray-200">Manage Leaves</a>
                 <a href="{{ route('admin.manage-users') }}" class="ml-4 hover:text-gray-200">Manage Employees</a>
                 <a href="{{ route('admin.monthly-report') }}" class="ml-4 hover:text-gray-200">Monthly Report</a>
