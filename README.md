@@ -42,6 +42,8 @@ A comprehensive Leave Management System built with Laravel 10.0 and Tailwind CSS
 
 ![screenshot](samples/admin-dashboard.png)
 
+![screenshot](samples/manage-leaves.png)
+
 ![screenshot](samples/pending-leaves.png)
 
 ![screenshot](samples/approved-leaves.png)
